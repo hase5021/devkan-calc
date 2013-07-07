@@ -23,7 +23,7 @@ public class CalculatorAcceptanceTest {
     }
 
     @Test
-    public void 足し算_有効値() {
+    public void aaa() {
         String actual = client.target(calcService + "/add")
                 .queryParam("a", "2147483646")
                 .queryParam("b", "1")
@@ -34,7 +34,7 @@ public class CalculatorAcceptanceTest {
     }
 
     @Test(expected = NotFoundException.class)
-    public void 足し算_ギリシャ数字() {
+    public void bbb() {
         client.target(calcService + "/add")
                 .queryParam("a", "Ⅰ")
                 .queryParam("b", "1")
@@ -43,7 +43,7 @@ public class CalculatorAcceptanceTest {
     }
 
     @Test(expected = InternalServerErrorException.class)
-    public void 足し算_桁溢れ() {
+    public void ccc() {
         client.target(calcService + "/add")
                 .queryParam("a", "2147483647")
                 .queryParam("b", "1")
