@@ -1,5 +1,7 @@
 package services;
 
+import java.math.BigDecimal;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -13,6 +15,6 @@ public class Calculator {
     @GET
     @Path("add")
     public String add(@QueryParam("a")int a, @QueryParam("b")int b){
-        return a+b;
+        return BigDecimal.valueOf(a).add(BigDecimal.valueOf(b)).toString();
     }
 }
