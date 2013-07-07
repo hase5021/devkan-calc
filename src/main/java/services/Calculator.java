@@ -3,6 +3,7 @@ package services;
 import java.math.BigDecimal;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -15,6 +16,11 @@ public class Calculator {
     @GET
     @Path("add")
     public String add(@QueryParam("a")int a, @QueryParam("b")int b){
-        return String.valueOf(a+b);
+        
+    	if(a+b < 0) {
+    		throw new InternalServerErrorException();
+    	}
+    	return String.valueOf(a+b);
+    	
     }
 }
