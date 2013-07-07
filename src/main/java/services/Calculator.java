@@ -15,6 +15,6 @@ public class Calculator {
     @GET
     @Path("add")
     public String add(@QueryParam("a")int a, @QueryParam("b")int b){
-        return BigDecimal.valueOf(a).add(BigDecimal.valueOf(b)).toString();
+        return String.valueOf(a+b);
     }
 }
