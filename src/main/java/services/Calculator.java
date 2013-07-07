@@ -1,7 +1,5 @@
 package services;
 
-import java.math.BigDecimal;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Path;
@@ -17,9 +15,6 @@ public class Calculator {
     @Path("add")
     public String add(@QueryParam("a")int a, @QueryParam("b")int b){
         
-    	if(a+b > Integer.MAX_VALUE) {
-    		throw new InternalServerErrorException();
-    	}
     	return String.valueOf(a+b);
     	
     }
